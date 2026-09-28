@@ -22,14 +22,27 @@
      깊은 대비 #5F8A7B · 기본 배경 #F1FCF8 · 암송 포인트 #E9C5AB
    본문 글자는 #5F8A7B 가 배경 대비 3.7:1 이라 작은 글씨에서 읽기
    어려워, 같은 색상 계열을 어둡게 내린 톤을 본문용으로 씁니다. */
-:root{
+:root {
+  /* [수정] 기본 상태를 다크 모드 색상으로 변경 */
+  --bg:#0F1F1A; --surface:#182D26; --tint:#1E362E;
+  --core:#90E4C1; --secondary:#B2E58E; --deep:#8FB6A6; --accent:#E9C5AB;
+  --ink:#E4F3EC; --ink-soft:#A9CBBB; --accent-ink:#E9C5AB;
+  --line:#2C4B40; --line-soft:#233B33; --brand:#90E4C1;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.22);
+  --g-seed:#C9B096; --g-sprout:#B6E58E; --g-leaf:#79D5AA;
+  --g-flower:#F0A6BE; --g-fruit:#F0925F;
+  color-scheme: dark; /* 브라우저에게 다크 모드임을 선언 */
+}
+
+/* 라이트 모드 요청이 있을 때만 밝은 색상으로 전환 */
+:root[data-theme="light"] {
   --bg:#F1FCF8;
   --surface:#FFFFFF;
-  --tint:#DFF6ED;          /* 밝은 포인트 */
-  --core:#90E4C1;          /* 핵심 색록 */
-  --secondary:#B2E58E;     /* 보조 */
-  --deep:#5F8A7B;          /* 깊은 대비 */
-  --accent:#E9C5AB;        /* 암송 포인트 */
+  --tint:#DFF6ED;
+  --core:#90E4C1;
+  --secondary:#B2E58E;
+  --deep:#5F8A7B;
+  --accent:#E9C5AB;
   --ink:#23453A;
   --ink-soft:#46705F;
   --accent-ink:#9A5B2B;
@@ -39,32 +52,11 @@
   --shadow:0 1px 2px rgba(35,69,58,.05), 0 6px 18px rgba(35,69,58,.05);
   --g-seed:#A79079; --g-sprout:#7FBB4E; --g-leaf:#3E9B74;
   --g-flower:#C9718F; --g-fruit:#C25F31;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0F1F1A; --surface:#182D26; --tint:#1E362E;
-    --core:#90E4C1; --secondary:#B2E58E; --deep:#8FB6A6; --accent:#E9C5AB;
-    --ink:#E4F3EC; --ink-soft:#A9CBBB; --accent-ink:#E9C5AB;
-    --line:#2C4B40; --line-soft:#233B33; --brand:#90E4C1;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.22);
-    --g-seed:#C9B096; --g-sprout:#B6E58E; --g-leaf:#79D5AA;
-    --g-flower:#F0A6BE; --g-fruit:#F0925F;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0F1F1A; --surface:#182D26; --tint:#1E362E;
-  --core:#90E4C1; --secondary:#B2E58E; --deep:#8FB6A6; --accent:#E9C5AB;
-  --ink:#E4F3EC; --ink-soft:#A9CBBB; --accent-ink:#E9C5AB;
-  --line:#2C4B40; --line-soft:#233B33; --brand:#90E4C1;
-  --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.22);
-  --g-seed:#C9B096; --g-sprout:#B6E58E; --g-leaf:#79D5AA;
-  --g-flower:#F0A6BE; --g-fruit:#F0925F;
-  color-scheme:dark;
+  color-scheme: light;
 }
 
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
 html,body{margin:0;padding:0}
 body{
   background:var(--bg); color:var(--ink);
